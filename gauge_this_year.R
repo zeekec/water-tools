@@ -70,20 +70,20 @@ p <- ggplot(gauge_summary, aes(yday)) +
     geom_ribbon(aes(ymin = p10, ymax = p90, fill = "10th to 90th percentile")) +
     geom_ribbon(aes(ymin = p30, ymax = p70, fill = "30th to 70th percentile")) +
     geom_path(aes(x = yday, y = md, color = "median"), linetype = 2) +
-    geom_path(data = this_year, aes(x = yday, y = flow + 1, color = "2022")) +
-    geom_path(data = last_year, aes(x = yday, y = newflow + 1, color = "2021")) +
+    geom_path(data = this_year, aes(x = yday, y = flow + 1, color = "2025")) +
+    geom_path(data = last_year, aes(x = yday, y = newflow + 1, color = "2024")) +
     scale_colour_manual(values = c("black", "red", "darkgrey")) +
     scale_fill_manual(values = c("lightblue", "lightgreen", "lightgray")) +
     guides(fill = guide_legend(title = NULL)) +
     guides(colour = guide_legend(title = NULL)) +
-    #08330000 scale_y_log10() +
+    # scale_y_log10() +
     labs(
         title = gauge_meta$station_nm,
         x = "day of the year",
         y = "flow, cubic feet per second",
         caption = "Data: USGS\ngraph: Utton Center, University of New Mexico\ncode: https://github.com/johnrfleck/water-tools",
         subtitle = startdate
-    )
-theme(strip.text = element_text(face = "bold", size = 8))
+    ) +
+    theme(strip.text = element_text(face = "bold", size = 8))
 
 print(p)
