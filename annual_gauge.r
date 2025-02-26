@@ -60,4 +60,3 @@ p <- ggplot(gauge_annual, aes(year, annual_flow/1000)) +
        code: https://github.com/johnrfleck/water-tools") +
   theme(strip.text = element_text(face = "bold", size = 8))
 print(p)
-

@@ -49,7 +49,7 @@ startdate <- paste("Distribution of daily flows, five year bins\nUSGS gauge",
 
 gauge_daily$fiveyr <- as.character(floor((gauge_daily$year/5))*5)
 
-ggplot(gauge_daily, aes(fiveyr, flow)) + 
+p <- ggplot(gauge_daily, aes(fiveyr, flow)) + 
   geom_violin(size=1) +
       geom_jitter(size=0.05, alpha=0.15) +
       scale_y_log10() +
@@ -60,3 +60,4 @@ ggplot(gauge_daily, aes(fiveyr, flow)) +
        subtitle=startdate) +
   theme(strip.text = element_text(face = "bold", size = 8))
   
+print(p)

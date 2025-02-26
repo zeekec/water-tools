@@ -1,7 +1,9 @@
 # water-tools
 John Fleck's water tools
 
-January 2024: These tools are no longer being maintained, but I'm leaving them here in case anyone finds them useful.
+~~January 2024: These tools are no longer being maintained, but I'm leaving them here in case anyone finds them useful.~~
+
+This is not a maintained fork, but it is a fork.
 
 generalflowjoyplot.r
 

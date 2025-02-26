@@ -26,7 +26,7 @@ endDate <- Sys.Date()
 # retrieve data
 peak <- as_tibble(peak <- readNWISpeak(siteNo, startDate, endDate))
 
-ggplot(peak, aes(peak_dt)) +
+p <- ggplot(peak, aes(peak_dt)) +
   theme_bw() +
   geom_point(data=peak, aes(x=peak_dt, y=peak_va)) +
   guides(fill=guide_legend(title=NULL)) +
@@ -38,3 +38,5 @@ ggplot(peak, aes(peak_dt)) +
        code: https://github.com/johnrfleck/water-tools",
        subtitle=startdate)
 theme(strip.text = element_text(face = "bold", size = 8))
+
+print(p)

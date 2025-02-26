@@ -51,7 +51,7 @@ gauge_daily$fiveyr <- floor((gauge_daily$year/5))*5
 
 
 
-ggplot(data=gauge_daily, aes(x=yday)) + 
+p <- ggplot(data=gauge_daily, aes(x=yday)) + 
   geom_boxplot(mapping = aes(x=factor(fiveyr), y=flow)) +
       scale_y_log10() +
       labs(title=gauge_meta$station_nm,
@@ -61,3 +61,5 @@ ggplot(data=gauge_daily, aes(x=yday)) +
        subtitle=startdate) +
   theme(strip.text = element_text(face = "bold", size = 8))
   #scale_y_log10()
+
+print(p)
