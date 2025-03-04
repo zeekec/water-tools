@@ -46,11 +46,11 @@ gauge_daily$yday <- yday(gauge_daily$Date)
 startdate <- paste(
     "Daily flows\nUSGS gauge ",
     gauge_meta$site_no,
-    "\nData series start date: Jan. 1, 2001"
+    "\nData series start date: Jan. 1, 1965"
 )
 
 # filter to post-2000
-gauge_daily <- filter(gauge_daily, year > 2000)
+gauge_daily <- filter(gauge_daily, year > 1964)
 
 this_year <- filter(gauge_daily, year == 2025)
 last_year <- filter(gauge_daily, year == 2024)
@@ -74,7 +74,7 @@ p <- ggplot(gauge_summary, aes(yday)) +
     geom_path(aes(x = yday, y = md, color = "median"), linetype = 2) +
     geom_path(data = this_year, aes(x = yday, y = flow + 1, color = "2025")) +
     geom_path(data = last_year, aes(x = yday, y = newflow + 1, color = "2024")) +
-    scale_colour_manual(values = c("black", "red", "darkgrey")) +
+    scale_colour_manual(values = c("black", "red", "blue")) +
     scale_fill_manual(values = c("lightblue", "lightgreen", "lightgray")) +
     guides(fill = guide_legend(title = NULL)) +
     guides(colour = guide_legend(title = NULL)) +
