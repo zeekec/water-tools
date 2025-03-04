@@ -43,7 +43,14 @@ guage_function <- function(siteNo,
 
     gauge_daily <- get_flow_data(siteNo = siteNo, startDate = startDate, endDate = endDate)
 
+
     startDate <- gauge_daily[1, "Date"]$Date
+    endDate <- tail(gauge_daily, 1)[1, "Date"]$Date
+
+    cat(paste(
+        "Data start date: ", startDate, "\n",
+        "      end date: ", endDate
+    ))
 
     subtitle <- paste(
         "Daily flows\nUSGS gauge ",
